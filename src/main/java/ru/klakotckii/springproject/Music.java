@@ -6,5 +6,5 @@ import java.util.List;
  * @author pavelklak
  */
 public interface Music {
-    List<String> getSong();
+    String getSong();
 }

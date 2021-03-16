@@ -1,18 +1,31 @@
 package ru.klakotckii.springproject;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * @author pavelklak
  */
 @Component
+@Scope("prototype")
 public class ClassicMusic implements Music {
 
-    List<String> classicMusic = Arrays.asList("Hungarian Rhapsody", "Das Fledermaus", "River flows in you");
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("Doing my initialization");
+    }
+
+    // Для Prototype бинов не вызывается destroy-метод!
+    @PreDestroy
+    public void doMyDestroy() {
+        System.out.println("Doing my destruction");
+    }
 
     @Override
-    public List<String> getSong() { return classicMusic; }
+    public String getSong() {
+        return "Hungarian Rhapsody";
+    }
 }
