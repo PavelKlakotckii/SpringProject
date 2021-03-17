@@ -1,16 +1,12 @@
 package ru.klakotckii.springproject;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
  * @author pavelklak
  */
-@Component
-@Scope("prototype")
+
 public class ClassicMusic implements Music {
 
     @PostConstruct
